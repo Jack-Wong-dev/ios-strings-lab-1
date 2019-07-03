@@ -497,8 +497,13 @@ Output: `7`
 ```
 let testStr = "How are you doing this Monday?"
 let toArray = testStr.components(separatedBy: " ")
+let pattern =  "[^a-zA-Z0-9]"
 
-print(toArray[toArray.count-1].count)
+//print(toArray[toArray.count-1].count) //prints size of last word
+
+(toArray[toArray.count-1].range(of: pattern, options:.regularExpression) == nil) ? print("No last Word") : print(toArray[toArray.count-1].count)
+
+//uses regex to check if the last element is alphanumeric
 ```
 
 ***
